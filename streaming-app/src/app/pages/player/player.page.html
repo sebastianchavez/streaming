@@ -1,0 +1,29 @@
+<ion-content [fullscreen]="true" class="player-content">
+  <ion-header class="player-header" [translucent]="true">
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-button (click)="goBack()">
+          <ion-icon name="arrow-back" slot="icon-only" color="light"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-title *ngIf="content" color="light">{{ content.title }}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="video-container" *ngIf="content">
+    <video
+      [src]="content.videoUrl"
+      controls
+      autoplay
+      class="video-player"
+      playsinline
+    >
+      Tu navegador no soporta el elemento de video.
+    </video>
+  </div>
+
+  <div class="video-info" *ngIf="content">
+    <h2>{{ content.title }}</h2>
+    <p>{{ content.description }}</p>
+  </div>
+</ion-content>

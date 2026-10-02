@@ -1,0 +1,62 @@
+<ion-content [fullscreen]="true" class="profile-content">
+  <div class="profile-header" *ngIf="user">
+    <div class="avatar-container">
+      <img [src]="user.avatar" [alt]="user.name" class="avatar" />
+    </div>
+    <h1>{{ user.name }}</h1>
+    <p class="email">{{ user.email }}</p>
+    <div class="plan-badge">
+      <ion-icon name="star"></ion-icon>
+      <span>Plan {{ user.plan }}</span>
+    </div>
+  </div>
+
+  <div class="profile-stats" *ngIf="user">
+    <div class="stat-item">
+      <ion-icon name="calendar"></ion-icon>
+      <div class="stat-info">
+        <span class="stat-label">Miembro desde</span>
+        <span class="stat-value">{{ user.memberSince }}</span>
+      </div>
+    </div>
+  </div>
+
+  <ion-list class="profile-menu">
+    <ion-item button>
+      <ion-icon name="settings-outline" slot="start"></ion-icon>
+      <ion-label>Configuración</ion-label>
+      <ion-icon name="chevron-forward" slot="end"></ion-icon>
+    </ion-item>
+
+    <ion-item button>
+      <ion-icon name="notifications-outline" slot="start"></ion-icon>
+      <ion-label>Notificaciones</ion-label>
+      <ion-icon name="chevron-forward" slot="end"></ion-icon>
+    </ion-item>
+
+    <ion-item button>
+      <ion-icon name="download-outline" slot="start"></ion-icon>
+      <ion-label>Descargas</ion-label>
+      <ion-icon name="chevron-forward" slot="end"></ion-icon>
+    </ion-item>
+
+    <ion-item button>
+      <ion-icon name="help-circle-outline" slot="start"></ion-icon>
+      <ion-label>Ayuda</ion-label>
+      <ion-icon name="chevron-forward" slot="end"></ion-icon>
+    </ion-item>
+
+    <ion-item button>
+      <ion-icon name="information-circle-outline" slot="start"></ion-icon>
+      <ion-label>Acerca de</ion-label>
+      <ion-icon name="chevron-forward" slot="end"></ion-icon>
+    </ion-item>
+  </ion-list>
+
+  <div class="logout-section">
+    <ion-button expand="block" fill="outline" (click)="onLogout()" color="danger">
+      <ion-icon name="log-out-outline" slot="start"></ion-icon>
+      Cerrar sesión
+    </ion-button>
+  </div>
+</ion-content>

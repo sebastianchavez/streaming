@@ -1,0 +1,107 @@
+.search-content {
+  --background: #0d0d0d;
+}
+
+.search-header {
+  padding: 1rem 1rem 0.5rem;
+
+  ion-searchbar {
+    --background: rgba(255, 255, 255, 0.08);
+    --border-radius: 12px;
+    --color: #fff;
+    --placeholder-color: rgba(255, 255, 255, 0.4);
+    --icon-color: rgba(255, 255, 255, 0.5);
+    padding: 0;
+  }
+
+  .genre-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 0.5rem 0;
+
+    ion-chip {
+      --background: rgba(255, 255, 255, 0.08);
+      --color: rgba(255, 255, 255, 0.7);
+      font-size: 0.75rem;
+      height: 32px;
+    }
+  }
+}
+
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1rem;
+  text-align: center;
+
+  ion-icon {
+    font-size: 4rem;
+    color: rgba(255, 255, 255, 0.3);
+    margin-bottom: 1rem;
+  }
+
+  h3 {
+    color: #fff;
+    font-size: 1.2rem;
+    margin: 0 0 0.5rem;
+  }
+
+  p {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.9rem;
+    margin: 0;
+  }
+}
+
+.browse-section {
+  padding: 1rem;
+
+  h2 {
+    color: #fff;
+    font-size: 1.3rem;
+    margin: 0 0 1rem;
+  }
+
+  .genre-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+
+    .genre-card {
+      background: linear-gradient(135deg, rgba(229, 9, 20, 0.3), rgba(229, 9, 20, 0.1));
+      border-radius: 12px;
+      padding: 1.5rem 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      cursor: pointer;
+      transition: transform 0.2s;
+
+      &:active {
+        transform: scale(0.95);
+      }
+
+      ion-icon {
+        font-size: 2rem;
+        color: #e50914;
+      }
+
+      span {
+        color: #fff;
+        font-size: 0.85rem;
+        font-weight: 600;
+      }
+    }
+  }
+}

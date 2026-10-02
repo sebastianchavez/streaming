@@ -1,0 +1,16 @@
+<ion-card [routerLink]="['/content-detail', content.id]" class="content-card" [class]="'size-' + size">
+  <ion-img [src]="content.imageUrl" [alt]="content.title"></ion-img>
+  <div class="card-overlay">
+    <div class="card-info">
+      <h3>{{ content.title }}</h3>
+      <div class="card-meta">
+        <span class="rating">
+          <ion-icon name="star"></ion-icon>
+          {{ content.rating }}
+        </span>
+        <span class="year">{{ content.year }}</span>
+        <span class="type-badge" *ngIf="content.type === 'series'">Serie</span>
+      </div>
+    </div>
+  </div>
+</ion-card>

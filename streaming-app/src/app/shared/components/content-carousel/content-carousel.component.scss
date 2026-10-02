@@ -1,0 +1,44 @@
+.carousel-section {
+  margin-bottom: 1.5rem;
+}
+
+.carousel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+  margin-bottom: 0.75rem;
+
+  h2 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #fff;
+    margin: 0;
+  }
+
+  .see-all-btn {
+    --color: #e50914;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: none;
+  }
+}
+
+.carousel-scroll {
+  display: flex;
+  gap: 0.75rem;
+  overflow-x: auto;
+  padding: 0 1rem 0.5rem;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  app-content-card {
+    scroll-snap-align: start;
+    flex-shrink: 0;
+  }
+}

@@ -1,0 +1,84 @@
+<ion-content [fullscreen]="true" class="home-content">
+  <div class="hero-section" *ngIf="currentFeatured" [routerLink]="['/content-detail', currentFeatured.id]">
+    <img [src]="currentFeatured.bannerUrl" [alt]="currentFeatured.title" class="hero-image" />
+    <div class="hero-overlay">
+      <h1>{{ currentFeatured.title }}</h1>
+      <p>{{ currentFeatured.description }}</p>
+      <div class="hero-actions">
+        <ion-button fill="solid" color="light">
+          <ion-icon name="play" slot="start"></ion-icon>
+          Reproducir
+        </ion-button>
+        <ion-button fill="outline" color="light">
+          <ion-icon name="information-circle" slot="start"></ion-icon>
+          Más info
+        </ion-button>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-section">
+    <app-content-carousel
+      title="Tendencias"
+      [contents]="trending"
+      cardSize="medium"
+      [showSeeAll]="false"
+    ></app-content-carousel>
+
+    <app-content-carousel
+      title="Top 10"
+      [contents]="topRated"
+      cardSize="medium"
+      [showSeeAll]="false"
+    ></app-content-carousel>
+
+    <app-content-carousel
+      title="Acción"
+      [contents]="action"
+      [genre]="'Acción'"
+      cardSize="medium"
+    ></app-content-carousel>
+
+    <app-content-carousel
+      title="Series"
+      [contents]="series"
+      [showSeeAll]="false"
+      cardSize="medium"
+    ></app-content-carousel>
+
+    <app-content-carousel
+      title="Comedia"
+      [contents]="comedy"
+      [genre]="'Comedia'"
+      cardSize="medium"
+    ></app-content-carousel>
+
+    <app-content-carousel
+      title="Drama"
+      [contents]="drama"
+      [genre]="'Drama'"
+      cardSize="medium"
+    ></app-content-carousel>
+
+    <app-content-carousel
+      title="Terror"
+      [contents]="horror"
+      [genre]="'Terror'"
+      cardSize="medium"
+    ></app-content-carousel>
+
+    <app-content-carousel
+      title="Ciencia Ficción"
+      [contents]="sciFi"
+      [genre]="'Ciencia Ficción'"
+      cardSize="medium"
+    ></app-content-carousel>
+
+    <app-content-carousel
+      title="Documentales"
+      [contents]="documentaries"
+      [genre]="'Documentales'"
+      cardSize="medium"
+    ></app-content-carousel>
+  </div>
+</ion-content>

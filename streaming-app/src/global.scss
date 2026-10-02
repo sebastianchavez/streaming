@@ -1,0 +1,53 @@
+@import "@ionic/angular/css/core.css";
+
+@import "@ionic/angular/css/normalize.css";
+@import "@ionic/angular/css/structure.css";
+@import "@ionic/angular/css/typography.css";
+@import "@ionic/angular/css/display.css";
+
+@import "@ionic/angular/css/padding.css";
+@import "@ionic/angular/css/float-elements.css";
+@import "@ionic/angular/css/text-alignment.css";
+@import "@ionic/angular/css/text-transformation.css";
+@import "@ionic/angular/css/flex-utils.css";
+
+@import "@ionic/angular/css/palettes/dark.system.css";
+
+:root {
+  --ion-color-primary: #e50914;
+  --ion-color-primary-rgb: 229, 9, 20;
+  --ion-color-primary-contrast: #ffffff;
+  --ion-color-primary-contrast-rgb: 255, 255, 255;
+  --ion-color-primary-shade: #ca0812;
+  --ion-color-primary-tint: #e8222c;
+
+  --ion-color-secondary: #1a1a2e;
+  --ion-color-secondary-rgb: 26, 26, 46;
+  --ion-color-secondary-contrast: #ffffff;
+  --ion-color-secondary-contrast-rgb: 255, 255, 255;
+  --ion-color-secondary-shade: #171728;
+  --ion-color-secondary-tint: #313143;
+
+  --ion-background-color: #0d0d0d;
+  --ion-text-color: #ffffff;
+}
+
+body {
+  background: #0d0d0d;
+}
+
+ion-content {
+  --background: #0d0d0d;
+}
+
+ion-card {
+  --background: rgba(255, 255, 255, 0.05);
+}
+
+ion-list {
+  background: transparent;
+}
+
+ion-item {
+  --background: transparent;
+}

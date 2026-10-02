@@ -1,0 +1,51 @@
+<ion-content [fullscreen]="true" class="search-content">
+  <div class="search-header">
+    <ion-searchbar
+      [(ngModel)]="searchQuery"
+      (ionInput)="onSearchInput($event)"
+      placeholder="Buscar películas, series, géneros..."
+      animated
+      show-clear-button="always"
+    ></ion-searchbar>
+
+    <div class="genre-chips">
+      <ion-chip
+        *ngFor="let genre of genres"
+        [color]="selectedGenre === genre ? 'danger' : 'medium'"
+        (click)="filterByGenre(genre)"
+      >
+        {{ genre }}
+      </ion-chip>
+    </div>
+  </div>
+
+  <div class="search-results" *ngIf="results.length > 0">
+    <div class="results-grid">
+      <app-content-card
+        *ngFor="let content of results"
+        [content]="content"
+        size="medium"
+      ></app-content-card>
+    </div>
+  </div>
+
+  <div class="empty-state" *ngIf="results.length === 0 && (searchQuery || selectedGenre)">
+    <ion-icon name="search-outline"></ion-icon>
+    <h3>No se encontraron resultados</h3>
+    <p>Intenta con otros términos de búsqueda</p>
+  </div>
+
+  <div class="browse-section" *ngIf="!searchQuery && !selectedGenre">
+    <h2>Explorar por género</h2>
+    <div class="genre-grid">
+      <div
+        *ngFor="let genre of genres"
+        class="genre-card"
+        (click)="filterByGenre(genre)"
+      >
+        <ion-icon [name]="getGenreIcon(genre)"></ion-icon>
+        <span>{{ genre }}</span>
+      </div>
+    </div>
+  </div>
+</ion-content>

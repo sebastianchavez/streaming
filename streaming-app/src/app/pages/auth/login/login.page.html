@@ -1,0 +1,67 @@
+<ion-content [fullscreen]="true" class="login-content">
+  <div class="login-container">
+    <div class="logo-section">
+      <ion-icon name="film" class="logo-icon"></ion-icon>
+      <h1>StreamApp</h1>
+      <p>Tu entretenimiento, siempre contigo</p>
+    </div>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onLogin()" class="login-form">
+      <ion-item lines="none" class="input-item">
+        <ion-icon name="mail-outline" slot="start"></ion-icon>
+        <ion-input
+          formControlName="email"
+          type="email"
+          placeholder="Email"
+          fill="outline"
+        ></ion-input>
+      </ion-item>
+      <div class="error-message" *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.errors?.['required']">
+        El email es requerido
+      </div>
+      <div class="error-message" *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.errors?.['email']">
+        Ingresa un email válido
+      </div>
+
+      <ion-item lines="none" class="input-item">
+        <ion-icon name="lock-closed-outline" slot="start"></ion-icon>
+        <ion-input
+          formControlName="password"
+          [type]="showPassword ? 'text' : 'password'"
+          placeholder="Contraseña"
+          fill="outline"
+        ></ion-input>
+        <ion-icon
+          [name]="showPassword ? 'eye-off-outline' : 'eye-outline'"
+          slot="end"
+          (click)="showPassword = !showPassword"
+          class="toggle-password"
+        ></ion-icon>
+      </ion-item>
+      <div class="error-message" *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.errors?.['required']">
+        La contraseña es requerida
+      </div>
+
+      <ion-button
+        expand="block"
+        type="submit"
+        [disabled]="loginForm.invalid || isLoading"
+        class="login-button"
+      >
+        <ion-spinner *ngIf="isLoading" name="crescent"></ion-spinner>
+        <span *ngIf="!isLoading">Iniciar Sesión</span>
+      </ion-button>
+    </form>
+
+    <div class="register-section">
+      <p>¿No tienes cuenta?</p>
+      <ion-button fill="clear" (click)="goToRegister()" color="light">
+        Regístrate aquí
+      </ion-button>
+    </div>
+
+    <div class="demo-credentials">
+      <p><strong>Demo:</strong> juan@email.com / 123456</p>
+    </div>
+  </div>
+</ion-content>

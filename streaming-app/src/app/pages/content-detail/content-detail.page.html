@@ -1,0 +1,71 @@
+<ion-content [fullscreen]="true" class="detail-content" *ngIf="content">
+  <div class="detail-hero">
+    <img [src]="content.bannerUrl" [alt]="content.title" class="hero-image" />
+    <div class="hero-gradient"></div>
+
+    <ion-header class="detail-header" [translucent]="true">
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-back-button defaultHref="/tabs/home" text=""></ion-back-button>
+        </ion-buttons>
+        <ion-buttons slot="end">
+          <ion-button (click)="toggleFavorite()">
+            <ion-icon
+              [name]="isFavorite ? 'heart' : 'heart-outline'"
+              [color]="isFavorite ? 'danger' : 'light'"
+            ></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+
+    <div class="play-button-container">
+      <ion-button shape="round" size="large" class="play-btn" (click)="playContent()">
+        <ion-icon name="play" slot="icon-only"></ion-icon>
+      </ion-button>
+    </div>
+  </div>
+
+  <div class="detail-info">
+    <h1>{{ content.title }}</h1>
+
+    <div class="detail-meta">
+      <span class="rating">
+        <ion-icon name="star"></ion-icon>
+        {{ content.rating }}
+      </span>
+      <span class="year">{{ content.year }}</span>
+      <span class="duration">{{ content.duration }}</span>
+      <span class="type-badge">{{ content.type === 'movie' ? 'Película' : 'Serie' }}</span>
+    </div>
+
+    <div class="genre-tags">
+      <ion-chip *ngFor="let genre of content.genre" color="medium" size="small">
+        {{ genre }}
+      </ion-chip>
+    </div>
+
+    <p class="description">{{ content.description }}</p>
+
+    <div class="detail-extra" *ngIf="content.director">
+      <div class="info-row">
+        <span class="info-label">Director:</span>
+        <span class="info-value">{{ content.director }}</span>
+      </div>
+    </div>
+
+    <div class="detail-extra">
+      <div class="info-row">
+        <span class="info-label">Reparto:</span>
+        <span class="info-value">{{ content.cast.join(', ') }}</span>
+      </div>
+    </div>
+
+    <div class="detail-extra" *ngIf="content.seasons">
+      <div class="info-row">
+        <span class="info-label">Temporadas:</span>
+        <span class="info-value">{{ content.seasons }}</span>
+      </div>
+    </div>
+  </div>
+</ion-content>

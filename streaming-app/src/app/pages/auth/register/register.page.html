@@ -1,0 +1,83 @@
+<ion-content [fullscreen]="true" class="register-content">
+  <div class="register-container">
+    <div class="logo-section">
+      <ion-icon name="film" class="logo-icon"></ion-icon>
+      <h1>Crear Cuenta</h1>
+      <p>Únete a StreamApp</p>
+    </div>
+
+    <form [formGroup]="registerForm" (ngSubmit)="onRegister()" class="register-form">
+      <ion-item lines="none" class="input-item">
+        <ion-icon name="person-outline" slot="start"></ion-icon>
+        <ion-input
+          formControlName="name"
+          type="text"
+          placeholder="Nombre completo"
+          fill="outline"
+        ></ion-input>
+      </ion-item>
+      <div class="error-message" *ngIf="registerForm.get('name')?.touched && registerForm.get('name')?.errors?.['required']">
+        El nombre es requerido
+      </div>
+
+      <ion-item lines="none" class="input-item">
+        <ion-icon name="mail-outline" slot="start"></ion-icon>
+        <ion-input
+          formControlName="email"
+          type="email"
+          placeholder="Email"
+          fill="outline"
+        ></ion-input>
+      </ion-item>
+      <div class="error-message" *ngIf="registerForm.get('email')?.touched && registerForm.get('email')?.errors?.['email']">
+        Ingresa un email válido
+      </div>
+
+      <ion-item lines="none" class="input-item">
+        <ion-icon name="lock-closed-outline" slot="start"></ion-icon>
+        <ion-input
+          formControlName="password"
+          [type]="showPassword ? 'text' : 'password'"
+          placeholder="Contraseña"
+          fill="outline"
+        ></ion-input>
+        <ion-icon
+          [name]="showPassword ? 'eye-off-outline' : 'eye-outline'"
+          slot="end"
+          (click)="showPassword = !showPassword"
+          class="toggle-password"
+        ></ion-icon>
+      </ion-item>
+
+      <ion-item lines="none" class="input-item">
+        <ion-icon name="shield-checkmark-outline" slot="start"></ion-icon>
+        <ion-input
+          formControlName="confirmPassword"
+          [type]="showPassword ? 'text' : 'password'"
+          placeholder="Confirmar contraseña"
+          fill="outline"
+        ></ion-input>
+      </ion-item>
+      <div class="error-message" *ngIf="registerForm.get('confirmPassword')?.touched && registerForm.get('confirmPassword')?.errors?.['required']">
+        Confirma tu contraseña
+      </div>
+
+      <ion-button
+        expand="block"
+        type="submit"
+        [disabled]="registerForm.invalid || isLoading"
+        class="register-button"
+      >
+        <ion-spinner *ngIf="isLoading" name="crescent"></ion-spinner>
+        <span *ngIf="!isLoading">Crear Cuenta</span>
+      </ion-button>
+    </form>
+
+    <div class="login-section">
+      <p>¿Ya tienes cuenta?</p>
+      <ion-button fill="clear" (click)="goToLogin()" color="light">
+        Inicia sesión
+      </ion-button>
+    </div>
+  </div>
+</ion-content>

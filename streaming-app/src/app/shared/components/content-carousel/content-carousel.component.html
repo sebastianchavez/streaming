@@ -1,0 +1,22 @@
+<div class="carousel-section" *ngIf="contents.length > 0">
+  <div class="carousel-header">
+    <h2>{{ title }}</h2>
+    <ion-button
+      *ngIf="showSeeAll && genre"
+      fill="clear"
+      size="small"
+      [routerLink]="['/category', genre]"
+      class="see-all-btn"
+    >
+      Ver todo
+      <ion-icon name="chevron-forward" slot="end"></ion-icon>
+    </ion-button>
+  </div>
+  <div class="carousel-scroll">
+    <app-content-card
+      *ngFor="let content of contents"
+      [content]="content"
+      [size]="cardSize"
+    ></app-content-card>
+  </div>
+</div>

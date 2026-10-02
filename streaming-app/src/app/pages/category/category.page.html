@@ -1,0 +1,24 @@
+<ion-content [fullscreen]="true" class="category-content">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/tabs/home" text=""></ion-back-button>
+      </ion-buttons>
+      <ion-title size="large">{{ genre }}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="category-grid" *ngIf="contents.length > 0">
+    <app-content-card
+      *ngFor="let content of contents"
+      [content]="content"
+      size="medium"
+    ></app-content-card>
+  </div>
+
+  <div class="empty-state" *ngIf="contents.length === 0">
+    <ion-icon name="film-outline"></ion-icon>
+    <h3>No hay contenido en esta categoría</h3>
+    <p>Pronto agregaremos más contenido</p>
+  </div>
+</ion-content>
